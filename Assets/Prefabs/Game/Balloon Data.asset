@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c455370f795924957b1584efa076de56, type: 3}
+  m_Name: Balloon Data
+  m_EditorClassIdentifier: 
+  Force:
+    Min: 8
+    Max: 12
+  Sections:
+    Min: 3
+    Max: 10
+  Colours:
+  - {r: 0.27058825, g: 0.43137255, b: 0.30980393, a: 1}
+  - {r: 0.16470589, g: 0.21176471, b: 0.3764706, a: 1}
+  - {r: 0.23137255, g: 0.21176471, b: 0.23529412, a: 1}
+  - {r: 0.7411765, g: 0.3882353, b: 0.69803923, a: 1}
+  - {r: 0.87058824, g: 0.38431373, b: 0.39607844, a: 1}
+  - {r: 0.96862745, g: 0.92941177, b: 0.5137255, a: 1}
+  - {r: 0.9254902, g: 0.6313726, b: 0.7647059, a: 1}
+  - {r: 0.3882353, g: 0.80784315, b: 0.9372549, a: 1}
+  - {r: 0.972549, g: 0.74509805, b: 0.39215687, a: 1}
+  - {r: 0.7372549, g: 0.827451, b: 0.3764706, a: 1}
