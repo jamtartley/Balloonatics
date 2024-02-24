@@ -47,8 +47,6 @@ namespace Balloonatics.Game
             }
         }
 
-        // @SPEED(HIGH) Creating balloons
-        // This method causes a noticeable framerate hitch if adding more than one balloon at a time
         public void Init(Rigidbody2D hand, PlayerController controller, Color? overrideColour)
         {
             this.Controller = controller;

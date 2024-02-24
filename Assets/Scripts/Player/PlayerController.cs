@@ -6,6 +6,7 @@ namespace Balloonatics.Player
 {
     public class PlayerController : MonoBehaviour
     {
+        [HideInInspector] public PlayerAim Aim;
         [HideInInspector] public PlayerInput Input;
         [HideInInspector] public PlayerMovement Movement;
         [HideInInspector] public List<Balloon> Balloons = new List<Game.Balloon>();

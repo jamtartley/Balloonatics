@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57a66e1d7700a4009aa46a05fcf44462, type: 3}
   m_Name: PlayerControllerData
   m_EditorClassIdentifier: 
-  InitialBalloons: 5
+  InitialBalloons: 2
