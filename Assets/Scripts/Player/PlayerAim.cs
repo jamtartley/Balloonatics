@@ -1,3 +1,4 @@
+using Balloonatics.Combat;
 using Balloonatics.Utils;
 using UnityEngine;
 
@@ -8,9 +9,12 @@ namespace Balloonatics.Player
         [HideInInspector] public AimPositionData AimPosition;
 
         [SerializeField] private Rigidbody2D armRoot;
-        [SerializeField] private Transform spawnPoint;
+        [SerializeField] private Rigidbody2D[] armBodies;
+        [SerializeField] private HingeJoint2D armJoint;
 
+        private PlayerController controller;
         private Vector2 prevAimPos;
+        private Weapon weapon => controller.Weapon;
 
         public enum AimInputType
         {
@@ -25,17 +29,36 @@ namespace Balloonatics.Player
             public Vector2 Normalised;
         }
 
+        private void Awake()
+        {
+            controller = GetComponent<PlayerController>();
+        }
+
         private void Update()
         {
             Vector2 vec = Camera.main.ScreenToWorldPoint(Input.mousePosition).ToVector2();
             UpdateAim(vec, AimInputType.WORLD);
+
+            HandleArmJointAndBodyBehaviour();
+        }
+
+        private void HandleArmJointAndBodyBehaviour()
+        {
+            foreach (var armBody in armBodies)
+            {
+                armBody.mass = weapon == null ? 1f : 0.1f;
+                armBody.drag = weapon == null ? 0.2f : 15f;
+            }
+
+            armJoint.useLimits = weapon != null;
         }
 
         private void UpdateAim(Vector2 aimPos, AimInputType type)
         {
             if (aimPos == Vector2.zero) return;
+            if (weapon == null) return;
 
-            Vector2 spawn2d = spawnPoint.position.ToVector2();
+            Vector2 spawn2d = controller.Weapon.SpawnPoint.position.ToVector2();
             aimPos = Vector2.Lerp(prevAimPos, aimPos, 10 * Time.deltaTime);
             prevAimPos = aimPos;
 

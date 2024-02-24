@@ -23,7 +23,6 @@ namespace Balloonatics.Combat
             bullets = Data.Capacity;
 
             playerController = gameObject.GetFirstUpHierarchy<PlayerController>();
-            Debug.Log(playerController);
             // @REFACTOR Assigning PlayerController weapon should not happen here
             playerController.Weapon = this;
         }
@@ -36,6 +35,7 @@ namespace Balloonatics.Combat
         public void Throw()
         {
             // @FEATURE Throwing weapons
+            playerController.Weapon = null;
             Destroy(gameObject);
         }
 
@@ -52,7 +52,7 @@ namespace Balloonatics.Combat
 
             weaponRelease.Shoot(direction, aimQuat);
 
-            playerController.Movement.Recoil(-direction.normalized * Data.RecoilForce);
+            playerController.Movement.Recoil(direction.normalized * Data.RecoilForce);
 
             bullets -= Data.AmmoPerShot;
             if (bullets < Data.AmmoPerShot) Throw();

@@ -613,7 +613,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 60
+  orthographic size: 100
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2020,11 +2020,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1246557400 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1186743190414611580, guid: 4796130d060f14312b156c4a4c599341, type: 3}
-  m_PrefabInstance: {fileID: 7480730340893741491}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1354784522
 GameObject:
   m_ObjectHideFlags: 0
@@ -2755,7 +2750,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   armRoot: {fileID: 1594796705}
-  spawnPoint: {fileID: 1246557400}
+  armBodies:
+  - {fileID: 1594796705}
+  - {fileID: 1845929751}
+  armJoint: {fileID: 1845929749}
 --- !u!1 &1799837641
 GameObject:
   m_ObjectHideFlags: 0

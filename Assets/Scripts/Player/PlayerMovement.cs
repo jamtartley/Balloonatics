@@ -28,9 +28,9 @@ namespace Balloonatics.Player
             body.AddForce(new Vector2(horizontalMovement, verticalMovement), ForceMode2D.Force);
         }
 
-        public void Recoil(Vector2 dir)
+        public void Recoil(Vector2 attackDir)
         {
-            // @FEATURE: add recoil
+            body.AddForce(-attackDir, ForceMode2D.Impulse);
         }
     }
 }

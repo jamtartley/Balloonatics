@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Pistol
   m_EditorClassIdentifier: 
   Capacity: 6
-  ShotsPerSecond: 1
+  ShotsPerSecond: 4
   AmmoPerShot: 1
   ProjectilePrefab: {fileID: 8308311368520216605, guid: 099d751c208324a7fb8a7924691a96f6, type: 3}
-  ReleaseForce: 40
-  RecoilForce: 50
+  ReleaseForce: 250
+  RecoilForce: 400

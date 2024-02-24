@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: PlayerMovementData
   m_EditorClassIdentifier: 
   HorizontalSpeed: 300
-  VerticalUpSpeed: 300
+  VerticalUpSpeed: 500
   VerticalDownSpeed: 1000
