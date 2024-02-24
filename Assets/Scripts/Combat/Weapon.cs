@@ -1,34 +1,62 @@
+using Balloonatics.Player;
+using Balloonatics.Utils;
 using UnityEngine;
 
 namespace Balloonatics.Combat
 {
     public class Weapon : MonoBehaviour
     {
-        [SerializeField] private Transform spawnPoint;
-        [SerializeField] private Projectile projectilePrefab;
-        [SerializeField] private float releaseForce;
+        public WeaponData Data;
+        private PlayerController playerController;
+
+        [Space]
+        public Transform SpawnPoint;
+
+        [Space]
+        private Release weaponRelease;
+        private int bullets;
+        private float secsUntilNextAllowed;
 
         private void Awake()
         {
-            Debug.Assert(projectilePrefab != null);
+            weaponRelease = GetComponent<Release>();
+            bullets = Data.Capacity;
+
+            playerController = gameObject.GetFirstUpHierarchy<PlayerController>();
+            Debug.Log(playerController);
+            // @REFACTOR Assigning PlayerController weapon should not happen here
+            playerController.Weapon = this;
         }
 
         private void Update()
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                Vector2 direction = (mousePos - spawnPoint.position).normalized;
+            if (secsUntilNextAllowed > 0) secsUntilNextAllowed -= Time.deltaTime;
+        }
 
-                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        public void Throw()
+        {
+            // @FEATURE Throwing weapons
+            Destroy(gameObject);
+        }
 
-                Quaternion aimQuat = Quaternion.AngleAxis(angle, Vector3.forward);
+        public void Shoot()
+        {
+            if (secsUntilNextAllowed > 0) return;
+            if (bullets < Data.AmmoPerShot) return;
 
-                var proj = Instantiate(projectilePrefab, spawnPoint.position, aimQuat, null);
-                var body = proj.GetComponent<Rigidbody2D>();
+            secsUntilNextAllowed = 1f / Data.ShotsPerSecond;
 
-                body.AddForce(direction * releaseForce, ForceMode2D.Impulse);
-            }
+            float angleRad = playerController.Aim.AimPosition.Normalised.ToAngle();
+            Vector2 direction = new Vector2(Mathf.Cos(angleRad), Mathf.Sin(angleRad));
+            Quaternion aimQuat = Quaternion.AngleAxis(Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg, Vector3.forward);
+
+            weaponRelease.Shoot(direction, aimQuat);
+
+            playerController.Movement.Recoil(-direction.normalized * Data.RecoilForce);
+
+            bullets -= Data.AmmoPerShot;
+            if (bullets < Data.AmmoPerShot) Throw();
         }
     }
 }
+

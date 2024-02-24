@@ -77,7 +77,7 @@ namespace Balloonatics.Game
             head.Joint.connectedBody = prevPart.Body;
             head.Renderer.color = colour;
 
-            var sortingOrder = UnityEngine.Random.Range(-4, -1000);
+            var sortingOrder = Random.Range(-4, -1000);
             foreach (var bp in GetComponentsInChildren<BalloonPart>()) bp.Renderer.sortingOrder = sortingOrder;
             head.Renderer.sortingOrder = sortingOrder + 1;
 

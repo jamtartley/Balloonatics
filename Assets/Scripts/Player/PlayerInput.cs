@@ -23,6 +23,8 @@ namespace Balloonatics.Player
             if (Input.GetKey(KeyCode.S)) y -= 1;
             if (Input.GetKey(KeyCode.W)) y += 1;
 
+            if (Input.GetMouseButtonDown(0)) controller.Weapon.Shoot();
+
             controller.Movement.Move(new Vector2(x, y));
         }
     }

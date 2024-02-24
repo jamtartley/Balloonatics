@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6395309227717080757}
   - component: {fileID: -4389484003377898886}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: PistolProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,6 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82b8bb8def19f4b6a8310bf5fd915f97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Weapon: {fileID: 0}
+  Body: {fileID: 6395309227717080757}
 --- !u!212 &4662559261986500883
 SpriteRenderer:
   m_ObjectHideFlags: 0

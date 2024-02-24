@@ -1,3 +1,4 @@
+using Balloonatics.Combat;
 using Balloonatics.Game;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,7 @@ namespace Balloonatics.Player
         [HideInInspector] public PlayerAim Aim;
         [HideInInspector] public PlayerInput Input;
         [HideInInspector] public PlayerMovement Movement;
+        [HideInInspector] public Weapon Weapon;
         [HideInInspector] public List<Balloon> Balloons = new List<Game.Balloon>();
         public Balloon BalloonPrefab;
 
@@ -21,6 +23,7 @@ namespace Balloonatics.Player
 
         private void Start()
         {
+            Aim = GetComponent<PlayerAim>();
             Input = GetComponent<PlayerInput>();
             Movement = GetComponent<PlayerMovement>();
 
