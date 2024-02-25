@@ -16,7 +16,8 @@ GameObject:
   - component: {fileID: -4389484003377898886}
   - component: {fileID: 1212077932120541429}
   - component: {fileID: 8688223973173088972}
-  m_Layer: 0
+  - component: {fileID: 2498678395353537298}
+  m_Layer: 8
   m_Name: ShotgunProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -203,7 +204,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layersToDie:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 384
 --- !u!114 &8688223973173088972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,3 +218,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 10
+--- !u!114 &2498678395353537298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6219057636987126453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83766d10a668b47c8b113e846603e56b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PushForce: 250

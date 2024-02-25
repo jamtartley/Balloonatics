@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5685232924456372017}
   - component: {fileID: 2123725467258352260}
   - component: {fileID: 4888090329557723284}
-  m_Layer: 11
+  m_Layer: 6
   m_Name: BalloonHead
   m_TagString: Untagged
   m_Icon: {fileID: 0}

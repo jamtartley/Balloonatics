@@ -10,9 +10,14 @@ namespace Balloonatics.Combat
         public override bool MaybeApplyOn(GameObject target)
         {
             var health = target.GetFirstUpHierarchy<Health>();
-            if (!health) return false;
+
+            if (!health)
+            {
+                return false;
+            }
 
             health.TakeDamage(Damage, transform.position.ToVector2(), Player);
+
             return true;
         }
     }

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1de3d894f2ba54aaa94d2354372d0161, type: 3}
   m_Name: PlayerMovementData
   m_EditorClassIdentifier: 
-  HorizontalSpeed: 300
+  HorizontalSpeed: 500
   VerticalUpSpeed: 500
-  VerticalDownSpeed: 1000
+  VerticalDownSpeed: 1500

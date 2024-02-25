@@ -1,5 +1,6 @@
 using Balloonatics.Combat;
 using Balloonatics.Game;
+using Balloonatics.Utils;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -26,6 +27,25 @@ namespace Balloonatics.Player
             Aim = GetComponent<PlayerAim>();
             Input = GetComponent<PlayerInput>();
             Movement = GetComponent<PlayerMovement>();
+
+            GetComponent<Health>().OnDie += (killer) =>
+            {
+                Destroy(Aim);
+                Destroy(Input);
+                Destroy(Movement);
+
+                foreach (var joint in GetComponentsInChildren<Joint2D>().GetRandomSelection(0.3f))
+                {
+                    Destroy(joint);
+                }
+
+                foreach (var rb in GetComponentsInChildren<Rigidbody2D>())
+                {
+                    rb.interpolation = RigidbodyInterpolation2D.None;
+                    rb.drag = 0; // Prevent aiming arm dropping slowly due to having high drag
+                    rb.gravityScale = 8;
+                }
+            };
 
             for (int i = 0; i < data.InitialBalloons; i++)
             {

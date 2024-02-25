@@ -6,6 +6,7 @@ namespace Balloonatics.Combat
     public abstract class Effect : MonoBehaviour
     {
         [HideInInspector] protected PlayerController Player;
+        [HideInInspector] protected Projectile Projectile;
 
         private bool isUsed;
 
@@ -13,7 +14,8 @@ namespace Balloonatics.Combat
 
         private void Start()
         {
-            Player = GetComponent<Projectile>().Weapon.PlayerController;
+            Projectile = GetComponent<Projectile>();
+            Player = Projectile.Weapon.PlayerController;
         }
 
         public void Use(GameObject target)
