@@ -1896,6 +1896,8 @@ GameObject:
   - component: {fileID: 1219683450}
   - component: {fileID: 1219683449}
   - component: {fileID: 1219683448}
+  - component: {fileID: 1219683451}
+  - component: {fileID: 1219683452}
   m_Layer: 7
   m_Name: Ground
   m_TagString: Untagged
@@ -2015,6 +2017,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1219683451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1219683447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff888666726b149f69a8654ccb720e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: 8b743a53b829f4f2a87c121690b865bd, type: 2}
+  CurrentHealth: 0
+--- !u!114 &1219683452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1219683447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c3c06ae8f4e04414ad11964e4c080de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DeathEffectPrefab: {fileID: 0}
 --- !u!1001 &1236314734
 PrefabInstance:
   m_ObjectHideFlags: 0

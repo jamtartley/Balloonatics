@@ -7,7 +7,7 @@ namespace Balloonatics.Combat
     public class Weapon : MonoBehaviour
     {
         public WeaponData Data;
-        private PlayerController playerController;
+        [HideInInspector] public PlayerController PlayerController;
 
         [Space]
         public Transform SpawnPoint;
@@ -22,9 +22,9 @@ namespace Balloonatics.Combat
             weaponRelease = GetComponent<Release>();
             bullets = Data.Capacity;
 
-            playerController = gameObject.GetFirstUpHierarchy<PlayerController>();
+            PlayerController = gameObject.GetFirstUpHierarchy<PlayerController>();
             // @REFACTOR Assigning PlayerController weapon should not happen here
-            playerController.Weapon = this;
+            PlayerController.Weapon = this;
         }
 
         private void Update()
@@ -35,7 +35,7 @@ namespace Balloonatics.Combat
         public void Throw()
         {
             // @FEATURE Throwing weapons
-            playerController.Weapon = null;
+            PlayerController.Weapon = null;
             Destroy(gameObject);
         }
 
@@ -46,13 +46,13 @@ namespace Balloonatics.Combat
 
             secsUntilNextAllowed = 1f / Data.ShotsPerSecond;
 
-            float angleRad = playerController.Aim.AimPosition.Normalised.ToAngle();
+            float angleRad = PlayerController.Aim.AimPosition.Normalised.ToAngle();
             Vector2 direction = new Vector2(Mathf.Cos(angleRad), Mathf.Sin(angleRad));
             Quaternion aimQuat = Quaternion.AngleAxis(Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg, Vector3.forward);
 
             weaponRelease.Shoot(direction, aimQuat);
 
-            playerController.Movement.Recoil(direction.normalized * Data.RecoilForce);
+            PlayerController.Movement.Recoil(direction.normalized * Data.RecoilForce);
 
             bullets -= Data.AmmoPerShot;
             if (bullets < Data.AmmoPerShot) Throw();

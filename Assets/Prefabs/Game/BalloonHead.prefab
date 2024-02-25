@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 3022061478297880590}
   - component: {fileID: 63494400052561278}
   - component: {fileID: 5685232924456372017}
+  - component: {fileID: 2123725467258352260}
+  - component: {fileID: 4888090329557723284}
   m_Layer: 11
   m_Name: BalloonHead
   m_TagString: Untagged
@@ -264,3 +266,30 @@ MonoBehaviour:
   Joint: {fileID: 0}
   Renderer: {fileID: 0}
   Balloon: {fileID: 0}
+--- !u!114 &2123725467258352260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3022061478297880580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff888666726b149f69a8654ccb720e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: ebdda712e8c13439c996806cf82bd761, type: 2}
+  CurrentHealth: 0
+--- !u!114 &4888090329557723284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3022061478297880580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c3c06ae8f4e04414ad11964e4c080de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DeathEffectPrefab: {fileID: 0}
