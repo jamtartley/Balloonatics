@@ -19,6 +19,11 @@ namespace Balloonatics.Combat
             CurrentHealth = data.InitialHealth;
         }
 
+        public void Die()
+        {
+            TakeDamage(CurrentHealth, null);
+        }
+
         public void TakeDamage(float damage, Vector2? impactPosition, PlayerController source = null)
         {
             CurrentHealth = Mathf.Clamp(CurrentHealth - damage, 0, data.InitialHealth);

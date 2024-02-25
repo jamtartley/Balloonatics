@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b8299003bd2e4e2a89dd014a46eee9d, type: 3}
   m_Name: BalloonHeadHealthData
   m_EditorClassIdentifier: 
-  InitialHealth: 20
+  InitialHealth: 10
   ImpactPrefab: {fileID: 0}

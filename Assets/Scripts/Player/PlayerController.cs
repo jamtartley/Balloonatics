@@ -2,6 +2,7 @@ using Balloonatics.Combat;
 using Balloonatics.Game;
 using Balloonatics.Utils;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Balloonatics.Player
@@ -9,6 +10,7 @@ namespace Balloonatics.Player
     public class PlayerController : MonoBehaviour
     {
         [HideInInspector] public PlayerAim Aim;
+        [HideInInspector] public Health Health;
         [HideInInspector] public PlayerInput Input;
         [HideInInspector] public PlayerMovement Movement;
         [HideInInspector] public Weapon Weapon;
@@ -25,6 +27,7 @@ namespace Balloonatics.Player
         private void Start()
         {
             Aim = GetComponent<PlayerAim>();
+            Health = GetComponent<Health>();
             Input = GetComponent<PlayerInput>();
             Movement = GetComponent<PlayerMovement>();
 
@@ -51,6 +54,12 @@ namespace Balloonatics.Player
             {
                 AddBalloon();
             }
+        }
+
+        private void Update()
+        {
+            Balloons = Balloons.Where(b => b).ToList();
+            if (Balloons.Count == 0) Health.Die();
         }
 
         private void AddBalloon(Color? overrideColour = null)

@@ -1,3 +1,4 @@
+using Balloonatics.Combat;
 using Balloonatics.Player;
 using Balloonatics.Utils;
 using System.Collections.Generic;
@@ -62,7 +63,9 @@ namespace Balloonatics.Game
 
             BalloonPart prevPart = handle;
 
-            for (int i = 0; i < data.Sections.Random(); i++)
+            var sectionCount = data.Sections.Random();
+
+            for (int i = 0; i < sectionCount; i++)
             {
                 BalloonPart stringPart = Instantiate(StringCentralPrefab, prevPart.transform.position, Quaternion.identity, transform);
                 stringPart.Balloon = this;
@@ -76,6 +79,11 @@ namespace Balloonatics.Game
             head.Balloon = this;
             head.Joint.connectedBody = prevPart.Body;
             head.Renderer.color = colour;
+
+            head.GetComponent<Health>().OnDie += (source) =>
+            {
+                Destroy(gameObject);
+            };
 
             var sortingOrder = Random.Range(-4, -1000);
             foreach (var bp in GetComponentsInChildren<BalloonPart>()) bp.Renderer.sortingOrder = sortingOrder;
