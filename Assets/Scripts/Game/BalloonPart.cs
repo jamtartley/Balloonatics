@@ -9,6 +9,7 @@ namespace Balloonatics.Game
         [HideInInspector] public HingeJoint2D Joint;
         [HideInInspector] public SpriteRenderer Renderer;
         [HideInInspector] public Balloon Balloon;
+        [HideInInspector] public bool IsHead;
 
         private void Awake()
         {

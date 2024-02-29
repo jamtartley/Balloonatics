@@ -77,6 +77,7 @@ namespace Balloonatics.Game
 
             head = Instantiate(BalloonHeadPrefab, prevPart.transform.position, Quaternion.identity, transform);
             head.Balloon = this;
+            head.IsHead = true;
             head.Joint.connectedBody = prevPart.Body;
             head.Renderer.color = colour;
 

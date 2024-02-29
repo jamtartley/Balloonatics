@@ -1,4 +1,5 @@
-﻿using Balloonatics.Player;
+﻿using Balloonatics.Game;
+using Balloonatics.Player;
 using UnityEngine;
 
 namespace Balloonatics.Combat
@@ -21,6 +22,8 @@ namespace Balloonatics.Combat
         public void Use(GameObject target)
         {
             if (isUsed) return;
+            if (target.GetComponent<BalloonPart>()?.IsHead == false) return;
+            if (target.GetComponent<PlayerController>() == Player) return;
 
             isUsed |= MaybeApplyOn(target);
         }
