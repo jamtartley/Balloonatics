@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Balloonatics.Utils;
 using UnityEngine;
 
 namespace Balloonatics.Combat
@@ -17,12 +18,22 @@ namespace Balloonatics.Combat
             Body = GetComponent<Rigidbody2D>();
         }
 
+        private void Die()
+        {
+            foreach (var s in GetComponentsInChildren<SpriteRenderer>()) s.enabled = false;
+            foreach (var c in GetComponentsInChildren<Collider2D>()) c.enabled = false;
+
+            gameObject.DestroyMaybeAfterParticles();
+        }
+
         private void OnHit(Collider2D collider)
         {
             foreach (var effect in effects)
             {
                 effect.Use(collider.gameObject);
             }
+
+            Die();
         }
 
         private void OnTriggerEnter2D(Collider2D collider)

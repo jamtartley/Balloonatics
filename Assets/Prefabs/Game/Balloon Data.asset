@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Balloon Data
   m_EditorClassIdentifier: 
   Force:
-    Min: 8
-    Max: 12
+    Min: 16
+    Max: 24
   Sections:
     Min: 3
     Max: 10

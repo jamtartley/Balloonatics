@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5685232924456372017}
   - component: {fileID: 2123725467258352260}
   - component: {fileID: 4888090329557723284}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: BalloonHead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -266,6 +266,7 @@ MonoBehaviour:
   Joint: {fileID: 0}
   Renderer: {fileID: 0}
   Balloon: {fileID: 0}
+  IsHead: 0
 --- !u!114 &2123725467258352260
 MonoBehaviour:
   m_ObjectHideFlags: 0
