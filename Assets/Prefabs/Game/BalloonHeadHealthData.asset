@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: BalloonHeadHealthData
   m_EditorClassIdentifier: 
   InitialHealth: 10
-  ImpactPrefab: {fileID: 0}
+  ImpactPrefab: {fileID: 6230635669922389063, guid: 94d466a3197584449b3f8f5ed9336af9, type: 3}
+  DeathPrefab: {fileID: 6230635669922389063, guid: a0fe6b68500b04350833257149211196, type: 3}

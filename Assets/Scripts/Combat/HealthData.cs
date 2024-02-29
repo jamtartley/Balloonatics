@@ -7,5 +7,6 @@ namespace Balloonatics.Combat
     {
         public float InitialHealth;
         public GameObject ImpactPrefab;
+        public GameObject DeathPrefab;
     }
 }

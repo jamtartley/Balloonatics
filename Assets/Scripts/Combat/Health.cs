@@ -37,6 +37,11 @@ namespace Balloonatics.Combat
 
             if (CurrentHealth <= 0 && !hasNotifiedDeath)
             {
+                if (data.DeathPrefab != null)
+                {
+                    Instantiate(data.DeathPrefab, impactPosition ?? transform.position.ToVector2(), Quaternion.identity, null);
+                }
+
                 OnDie?.Invoke(source);
                 hasNotifiedDeath = true;
             }
